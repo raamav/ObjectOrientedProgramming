@@ -133,3 +133,38 @@ for p in pList: #final state
 eight.getIdNum()
 
 six.speak("This is very cool")
+
+
+
+
+
+"""
+Creating a sub-class Professor (parent class MITPerson) with the following properties:
+    - Every professor has a department
+    - speaks differently, ovverride the speak() method
+    - also has a lecture defined; lecture()
+"""
+
+class Professor(MITPerson):
+    
+    def __init__(self,name,department):
+        MITPerson.__init__(self,name) #inherit from the super class
+        self.department = department #add another attribute
+        
+    def speak(self,uttarance):
+        new = 'In course ' + self.department + ' we say '
+        return MITPerson.speak(self,new + uttarance)
+    
+    def lecture (self,topic):
+        return self.speak('it is obvious that ' + topic)
+
+
+#testing
+nine = Professor("GKS Suresh","Electronics and Telecoomunication")
+print(nine)
+
+nine.speak("Hello Students ")
+nine.lecture("Microprocessors")
+
+# This is a super comprehensive example that demonstrates how inheritance works
+
