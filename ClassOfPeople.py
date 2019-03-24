@@ -163,6 +163,7 @@ print(nine)
 
 nine.speak("Hello Students ")
 nine.lecture("Microprocessors")
+nine.getIdNum()
 
 # This is a super comprehensive example that demonstrates how inheritance works
 
