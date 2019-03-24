@@ -81,3 +81,55 @@ pList.sort() #the sorting function
 
 for p in pList: #final state
     print (p)
+
+    
+"""
+Creating a sub-class MITPerson that has the following properties:
+    - assigning ID numbers in sequence
+    - get ID number
+    - sort by ID number (as opposed to doing it by the last namein the parent class)
+"""
+
+class MITPerson(Person):
+    
+    nextIdNum = 0        #This is a class variable
+    
+    def __init__(self,name):
+        Person.__init__(self,name)  #Calling the parent class to set-up the initialization stuff
+        self.IdNum = MITPerson.nextIdNum #creating an ID variable for the instance
+        MITPerson.nextIdNum +=1  #incrementing the ID for subsequent instance
+
+    def getIdNum(self):
+        return self.IdNum    
+    
+    #sorting the MITPerson by their ID and not by their name; ovveriding __lt__
+    def __lt__(self,other):
+        return self.IdNum < other.IdNum
+    
+    #creating an additional "speak" method
+    def speak(self,uttarance):
+        return (self.getLastName() + " says: " + uttarance)
+
+
+#create a few objects
+six = MITPerson("Eric Grimson")
+seven = MITPerson("Steve Guttag")
+eight = MITPerson("Anna Bell")
+
+print(six)
+
+#checking if sort functionality works
+pList = [six, seven,eight]  
+
+for p in pList: #initial state
+    print (p)
+    
+pList.sort() #the sorting function
+
+for p in pList: #final state
+    print (p)
+
+#more checks
+eight.getIdNum()
+
+six.speak("This is very cool")
