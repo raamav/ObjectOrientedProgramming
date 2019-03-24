@@ -136,8 +136,6 @@ six.speak("This is very cool")
 
 
 
-
-
 """
 Creating a sub-class Professor (parent class MITPerson) with the following properties:
     - Every professor has a department
