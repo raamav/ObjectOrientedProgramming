@@ -1,0 +1,46 @@
+
+
+"""
+Using Generators, Example 1:
+
+"""         
+  
+def genTest():          #defining a generator
+    for i in range(10):
+        yield i
+        
+foo = genTest() #creating an instanceof generator
+
+foo.__next__() #this is how you use it
+
+
+
+"""
+Using Generators, To generate prime numbers
+
+"""     
+
+#creating the function
+def genPrimes():
+    #p1=2
+    i=1
+    d = 0
+    while True:
+        i+=1
+        for j in range (1,i+1):
+            if i%j ==0:
+                d+=1
+        if d == 2:
+            next = i    #next gets sent in the next prompt
+            d = 0
+            yield next  #wait for the next input
+        else:
+            d=0
+        
+
+#testing the function 
+prime = genPrimes()  #creating instance
+
+prime.__next__()   #getting the next value
+
+
